@@ -1,0 +1,15 @@
+#cloud-config
+users:
+  - default
+  - name: geeko
+    sudo: 'ALL=(ALL) NOPASSWD:ALL'
+    lock_passwd: false
+    shell: /bin/bash
+    plain_text_passwd: password
+ssh_pwauth: True
+packages:
+  - qemu-guest-agent
+runcmd:
+  - curl -Sks
+    https://megasuma5.swartzclan.com/pub/bootstrap/leap156.bootstrap.sh |
+    /bin/bash
